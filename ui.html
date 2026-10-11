@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#edf5e9">
+  <meta name="description" content="Tekno Krraft 2026 developer festival">
+  <title>Tekno Krraft 2026 | GDG @ SOA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="file.css/ui.css">
+</head>
+<body data-theme="light" data-palette="aurora">
+
+<div class="glass-atmosphere" aria-hidden="true">
+  <span class="glass-orbit orbit-one"></span>
+  <span class="glass-orbit orbit-two"></span>
+  <span class="glass-vine vine-one"></span>
+  <span class="glass-vine vine-two"></span>
+  <span class="glass-vine vine-three"></span>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="app-shell">
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand-wrap">
+      <a class="brand sidebar-brand" href="#about">
+        <span class="gdg-mark" aria-hidden="true">
+          <span>G</span><span>D</span><span>G</span>
+        </span>
+        <span class="brand-copy">
+          <strong>Tekno Krraft <em>2026</em></strong>
+          <small>GDG @ SOA, ITER Chapter</small>
+        </span>
+      </a>
+    </div>
+
+    <div class="sidebar-main-action">
+      <div class="sidebar-nav-heading">Navigation</div>
+
+      <nav class="main-nav sidebar-nav" id="mainNav" aria-label="Page navigation">
+        <a class="active sidebar-overview" href="#about">
+          <span class="sidebar-nav-icon">⌂</span>
+          <span class="sidebar-nav-label">About</span>
+        </a>
+        <a href="#schedule">
+          <span class="sidebar-nav-icon">◷</span>
+          <span class="sidebar-nav-label">Schedule</span>
+        </a>
+        <a href="#tracks">
+          <span class="sidebar-nav-icon">✳</span>
+          <span class="sidebar-nav-label">Tracks &amp; Workshops</span>
+        </a>
+        <a href="#speakers">
+          <span class="sidebar-nav-icon">♙</span>
+          <span class="sidebar-nav-label">Speakers</span>
+        </a>
+        <a href="#sponsors">
+          <span class="sidebar-nav-icon">✦</span>
+          <span class="sidebar-nav-label">Sponsors</span>
+        </a>
+        <a href="#faqs">
+          <span class="sidebar-nav-icon">ⓘ</span>
+          <span class="sidebar-nav-label">FAQs</span>
+        </a>
+      </nav>
+
+      <button class="btn btn-primary sidebar-register" type="button" data-modal="register">
+        Register <span>↗</span>
+      </button>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="appearance-heading">
+        <span>Appearance</span>
+        <small>Personalize your space</small>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle"
+              type="button" aria-label="Switch theme">
+        <span class="theme-icon">☼</span>
+        <span class="theme-label">Light</span>
+        <span class="theme-switch-track">
+          <span class="theme-switch-knob"></span>
+        </span>
+      </button>
+
+      <!-- Five vibrant palettes -->
+      <div class="palette-picker" role="group" aria-label="Color theme">
+        <div class="palette-picker-heading">
+          <span>Color theme</span>
+          <small id="paletteActiveName">Aurora</small>
+        </div>
+
+        <div class="palette-options" id="paletteOptions">
+          <button class="palette-option selected" type="button"
+                  data-palette="aurora" aria-label="Aurora theme"
+                  aria-pressed="true" title="Aurora — violet and cyan">
+            <span class="palette-swatch swatch-aurora"><span>✓</span></span>
+            <span class="palette-option-label">Aurora</span>
+          </button>
+
+          <button class="palette-option" type="button"
+                  data-palette="ocean" aria-label="Ocean theme"
+                  aria-pressed="false" title="Ocean — blue and teal">
+            <span class="palette-swatch swatch-ocean"><span>✓</span></span>
+            <span class="palette-option-label">Ocean</span>
+          </button>
+
+          <button class="palette-option" type="button"
+                  data-palette="ember" aria-label="Ember theme"
+                  aria-pressed="false" title="Ember — coral and amber">
+            <span class="palette-swatch swatch-ember"><span>✓</span></span>
+            <span class="palette-option-label">Ember</span>
+          </button>
+
+          <button class="palette-option" type="button"
+                  data-palette="orchid" aria-label="Orchid theme"
+                  aria-pressed="false" title="Orchid — pink and violet">
+            <span class="palette-swatch swatch-orchid"><span>✓</span></span>
+            <span class="palette-option-label">Orchid</span>
+          </button>
+
+          <button class="palette-option" type="button"
+                  data-palette="citrus" aria-label="Citrus theme"
+                  aria-pressed="false" title="Citrus — lime and gold">
+            <span class="palette-swatch swatch-citrus"><span>✓</span></span>
+            <span class="palette-option-label">Citrus</span>
+          </button>
+        </div>
+
+        <p class="palette-description" id="paletteDescription">
+          Violet glass with arctic-cyan reflections.
+        </p>
+      </div>
+
+      <!-- Live glass transparency control -->
+      <div class="glass-clarity-panel">
+        <div class="clarity-heading">
+          <label for="glassClarity" id="glassClarityLabel">Glass Clarity</label>
+          <output id="glassClarityValue" for="glassClarity">68%</output>
+        </div>
+
+        <input
+          id="glassClarity"
+          class="glass-clarity-range"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value="68"
+          aria-describedby="glassClarityHelp"
+          aria-valuetext="68 percent transparent"
+        >
+
+        <div class="clarity-scale" aria-hidden="true">
+          <span>Frosted</span>
+          <span>Clear</span>
+        </div>
+
+        <p class="clarity-help" id="glassClarityHelp">
+          Adjust how much of the background shows through.
+        </p>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <button class="sidebar-action" type="button"
+              data-toast="This is a preview. No login session is connected.">
+        <span class="sidebar-action-icon">↪</span>
+        <span>Log Out</span>
+      </button>
+
+      <button class="sidebar-action" type="button"
+              data-toast="Settings will be configured in a future update.">
+        <span class="sidebar-action-icon">⚙</span>
+        <span>Settings</span>
+      </button>
+    </div>
+  </aside>
+
+  <button class="sidebar-scrim" id="sidebarScrim"
+          type="button" aria-label="Close navigation" hidden></button>
+
+  <!-- MAIN WORKSPACE: breadcrumb only, no upper navigation buttons -->
+  <div class="workspace">
+    <header class="workspace-topbar">
+      <div class="topbar-leading">
+        <button class="menu-toggle" id="menuToggle"
+                type="button" aria-label="Toggle sidebar"
+                aria-expanded="true" title="Toggle sidebar">
+          <span>‹</span>
+        </button>
+
+        <div class="workspace-crumb">
+          <span>Workspace</span>
+          <span class="crumb-slash">/</span>
+          <strong>Tekno Krraft 2026</strong>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ABOUT -->
+      <section class="section about-section" id="about">
+        <div class="section-heading">
+          <span class="eyebrow"><span>ϟ</span> Developer fest overview</span>
+          <h1>Why Join Tekno Krraft 2026?</h1>
+          <p>
+            Join students, industry mentors, developers, and open-source
+            contributors for three days of technology, learning, and innovation.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top"><strong>1,500+</strong><span class="stat-icon">♧</span></div>
+            <span class="stat-label">Attendees expected</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><strong>30+</strong><span class="stat-icon">‹ ›</span></div>
+            <span class="stat-label">Technical sessions</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><strong>₹2,50,000+</strong><span class="stat-icon">♜</span></div>
+            <span class="stat-label">Prize pool</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><strong>24 Hours</strong><span class="stat-icon">ϟ</span></div>
+            <span class="stat-label">Hack sprint hours</span>
+          </article>
+        </div>
+
+        <div class="feature-grid">
+          <article class="surface-card feature-card">
+            <span class="icon-tile">&gt;_</span>
+            <h3>Hands-On Technical Bootcamps</h3>
+            <p>Build real-world projects while learning about AI, cloud computing, web development, Flutter, and DevOps.</p>
+          </article>
+          <article class="surface-card feature-card">
+            <span class="icon-tile">▧</span>
+            <h3>24-Hour AI/ML Hack Sprint</h3>
+            <p>Collaborate in teams, solve real-world problems, build prototypes, and compete for exciting prizes.</p>
+          </article>
+          <article class="surface-card feature-card">
+            <span class="icon-tile">♙</span>
+            <h3>Recognition &amp; Networking</h3>
+            <p>Meet fellow developers, learn from mentors, showcase your work, and grow your technical network.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- JOURNEY / DAY SELECTOR -->
+      <section class="section journey-section">
+        <div class="section-heading compact-heading">
+          <span class="eyebrow">◷ Make every moment count</span>
+          <h2>Plan Your Fest Journey</h2>
+          <p>Choose a day to explore the sessions, workshops, and community experiences.</p>
+        </div>
+
+        <div class="day-selector" role="tablist">
+          <button class="day-tab active" data-day="1" role="tab" aria-selected="true">
+            <span>Day 1</span><small>Discover</small>
+          </button>
+          <button class="day-tab" data-day="2" role="tab" aria-selected="false">
+            <span>Day 2</span><small>Build</small>
+          </button>
+          <button class="day-tab" data-day="3" role="tab" aria-selected="false">
+            <span>Day 3</span><small>Showcase</small>
+          </button>
+        </div>
+
+        <div class="journey-note">
+          <span class="journey-dot"></span>
+          <div>
+            <strong id="day-note-title">Day 1 · Learn, connect, and explore</strong>
+            <p id="day-note-text">Start with the keynote and hands-on workshops.</p>
+          </div>
+          <span class="journey-date">ITER · SOA Campus</span>
+        </div>
+      </section>
+
+      <!-- EVENT SCHEDULE -->
+      <section class="section schedule-section" id="schedule">
+        <div class="section-heading">
+          <span class="eyebrow">▤ Sessions &amp; experiences</span>
+          <h2>Event Schedule</h2>
+          <p>Explore the agenda and plan your festival experience.</p>
+        </div>
+        <div class="schedule-list" id="scheduleList"></div>
+      </section>
+
+      <!-- TRACKS -->
+      <section class="section tracks-section" id="tracks">
+        <div class="section-heading">
+          <span class="eyebrow">▱ Core technical tracks</span>
+          <h2>Workshops &amp; Specialization Tracks</h2>
+          <p>Explore AI, cloud, web, mobile, and open-source engineering.</p>
+        </div>
+
+        <div class="tracks-grid">
+          <article class="surface-card track-card">
+            <div class="track-card-top"><span class="track-icon">✧</span><span class="level">Intermediate</span></div>
+            <h3>Generative AI &amp; Machine Learning</h3>
+            <p>Explore LLMs, Gemini APIs, RAG systems, and AI applications.</p>
+            <div class="prereq"><strong>Prerequisites</strong><div class="chips"><span>Python fundamentals</span><span>Basic ML concepts</span></div></div>
+            <div class="module-list">
+              <strong>Key Modules</strong>
+              <ul><li>Gemini API and prompting</li><li>Vector databases and RAG</li><li>Vertex AI Studio</li></ul>
+            </div>
+            <div class="track-card-bottom">
+              <button class="text-action syllabus-btn" data-syllabus="ai">View Syllabus</button>
+              <button class="btn btn-primary" data-modal="register" data-track="Generative AI & Machine Learning">Register <span>→</span></button>
+            </div>
+          </article>
+
+          <article class="surface-card track-card">
+            <div class="track-card-top"><span class="track-icon">◎</span><span class="level">Beginner</span></div>
+            <h3>Full-Stack Web &amp; Cloud Architecture</h3>
+            <p>Build scalable web apps and deploy them using cloud services.</p>
+            <div class="prereq"><strong>Prerequisites</strong><div class="chips"><span>HTML, CSS, JavaScript</span></div></div>
+            <div class="module-list">
+              <strong>Key Modules</strong>
+              <ul><li>Next.js and responsive UI</li><li>REST APIs and microservices</li><li>Cloud deployment</li></ul>
+            </div>
+            <div class="track-card-bottom">
+              <button class="text-action syllabus-btn" data-syllabus="web">View Syllabus</button>
+              <button class="btn btn-primary" data-modal="register" data-track="Full-Stack Web & Cloud Architecture">Register <span>→</span></button>
+            </div>
+          </article>
+
+          <article class="surface-card track-card">
+            <div class="track-card-top"><span class="track-icon">▯</span><span class="level">Beginner</span></div>
+            <h3>Mobile &amp; Cross-Platform Development</h3>
+            <p>Build cross-platform applications using Flutter and Dart.</p>
+            <div class="prereq"><strong>Prerequisites</strong><div class="chips"><span>OOP fundamentals</span></div></div>
+            <div class="module-list">
+              <strong>Key Modules</strong>
+              <ul><li>Flutter widgets</li><li>Firebase Authentication</li><li>State management</li></ul>
+            </div>
+            <div class="track-card-bottom">
+              <button class="text-action syllabus-btn" data-syllabus="mobile">View Syllabus</button>
+              <button class="btn btn-primary" data-modal="register" data-track="Mobile & Cross-Platform Development">Register <span>→</span></button>
+            </div>
+          </article>
+
+          <article class="surface-card track-card">
+            <div class="track-card-top"><span class="track-icon">⑂</span><span class="level">Advanced</span></div>
+            <h3>Open Source &amp; DevOps Engineering</h3>
+            <p>Learn containerization, deployment, and open-source collaboration.</p>
+            <div class="prereq"><strong>Prerequisites</strong><div class="chips"><span>Linux basics</span><span>Networking basics</span></div></div>
+            <div class="module-list">
+              <strong>Key Modules</strong>
+              <ul><li>Docker and Kubernetes</li><li>Infrastructure as code</li><li>GitOps and CI/CD</li></ul>
+            </div>
+            <div class="track-card-bottom">
+              <button class="text-action syllabus-btn" data-syllabus="devops">View Syllabus</button>
+              <button class="btn btn-primary" data-modal="register" data-track="Open Source & DevOps Engineering">Register <span>→</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SPEAKERS -->
+      <section class="section speakers-section" id="speakers">
+        <div class="section-heading">
+          <span class="eyebrow">♩ Speakers &amp; mentors</span>
+          <h2>Learn from Industry Leaders</h2>
+          <p>Meet the speakers sharing insights across modern technologies.</p>
+        </div>
+
+        <div class="speakers-grid">
+          <article class="surface-card speaker-card">
+            <img src="assets/images/speaker-1.jpg" alt="Speaker portrait" class="speaker-photo">
+            <span class="speaker-track">Generative AI</span>
+            <h3>Dr. Ananya Patnaik</h3>
+            <strong class="speaker-role">Principal Cloud Architect</strong>
+            <span class="speaker-company">Developer Community</span>
+            <div class="speaker-topic">Next Generation Developer Platforms</div>
+            <p>Exploring AI-powered developer platforms and cloud architecture.</p>
+            <div class="speaker-links">
+              <button class="icon-button" data-toast="Speaker profile is not configured." aria-label="Speaker profile">◎</button>
+              <button class="icon-button" data-share="Dr. Ananya Patnaik" aria-label="Share speaker">⌯</button>
+            </div>
+          </article>
+
+          <article class="surface-card speaker-card">
+            <img src="assets/images/speaker-2.jpg" alt="Speaker portrait" class="speaker-photo">
+            <span class="speaker-track">Generative AI</span>
+            <h3>Rohan Samal</h3>
+            <strong class="speaker-role">Senior AI Engineer</strong>
+            <span class="speaker-company">AI &amp; Cloud</span>
+            <div class="speaker-topic">Building Multimodal AI Agents</div>
+            <p>Building practical LLM agents and retrieval-based systems.</p>
+            <div class="speaker-links">
+              <button class="icon-button" data-toast="Speaker profile is not configured." aria-label="Speaker profile">◎</button>
+              <button class="icon-button" data-share="Rohan Samal" aria-label="Share speaker">⌯</button>
+            </div>
+          </article>
+
+          <article class="surface-card speaker-card">
+            <img src="assets/images/speaker-3.jpg" alt="Speaker portrait" class="speaker-photo">
+            <span class="speaker-track">Mobile Development</span>
+            <h3>Priyanka Mishra</h3>
+            <strong class="speaker-role">Mobile Development Lead</strong>
+            <span class="speaker-company">Flutter &amp; Firebase</span>
+            <div class="speaker-topic">Cross-Platform Masterclass</div>
+            <p>Creating mobile experiences using Flutter and Firebase.</p>
+            <div class="speaker-links">
+              <button class="icon-button" data-toast="Speaker profile is not configured." aria-label="Speaker profile">◎</button>
+              <button class="icon-button" data-share="Priyanka Mishra" aria-label="Share speaker">⌯</button>
+            </div>
+          </article>
+
+          <article class="surface-card speaker-card">
+            <img src="assets/images/speaker-4.jpg" alt="Speaker portrait" class="speaker-photo">
+            <span class="speaker-track">Web &amp; Cloud</span>
+            <h3>Amitabh Swain</h3>
+            <strong class="speaker-role">Staff Engineer</strong>
+            <span class="speaker-company">Cloud Systems</span>
+            <div class="speaker-topic">System Design at Scale</div>
+            <p>Exploring distributed systems and scalable application design.</p>
+            <div class="speaker-links">
+              <button class="icon-button" data-toast="Speaker profile is not configured." aria-label="Speaker profile">◎</button>
+              <button class="icon-button" data-share="Amitabh Swain" aria-label="Share speaker">⌯</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SPONSORS -->
+      <section class="section sponsors-section" id="sponsors">
+        <div class="section-heading">
+          <span class="eyebrow">✦ Our ecosystem</span>
+          <h2>Powered by Our Partners</h2>
+          <p>Technology partners supporting developer learning and innovation.</p>
+        </div>
+
+        <div class="sponsor-main-wrap">
+          <span class="mono-label">Title sponsor</span>
+          <a class="surface-card sponsor-main" href="https://cloud.google.com/" target="_blank" rel="noreferrer">
+            <strong>Google Cloud ↗</strong>
+            <p>Cloud infrastructure, AI services, and developer tools.</p>
+          </a>
+        </div>
+
+        <div class="partner-wrap">
+          <span class="mono-label">Platinum &amp; Gold Sponsors</span>
+          <div class="partner-grid">
+            <a class="surface-card partner-card" href="https://github.com/" target="_blank" rel="noreferrer"><strong>GitHub</strong><span>Platinum Partner</span></a>
+            <a class="surface-card partner-card" href="https://firebase.google.com/" target="_blank" rel="noreferrer"><strong>Firebase</strong><span>Platinum Partner</span></a>
+            <a class="surface-card partner-card" href="https://www.postman.com/" target="_blank" rel="noreferrer"><strong>Postman</strong><span>Gold Partner</span></a>
+            <a class="surface-card partner-card" href="https://www.jetbrains.com/" target="_blank" rel="noreferrer"><strong>JetBrains</strong><span>Gold Partner</span></a>
+          </div>
+        </div>
+
+        <div class="surface-card sponsor-cta">
+          <h3>Want to Sponsor Tekno Krraft 2026?</h3>
+          <p>Connect your brand with developers, students, and technology enthusiasts.</p>
+          <button class="btn btn-primary" data-modal="sponsor">Become a Sponsor</button>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section faq-section" id="faqs">
+        <div class="section-heading">
+          <span class="eyebrow">ⓘ Got questions?</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Answers about registration, workshops, eligibility, and certificates.</p>
+        </div>
+
+        <div class="faq-list">
+          <article class="surface-card faq-item open">
+            <button class="faq-question" aria-expanded="true">
+              <span>Is registration free?</span><span class="faq-chevron">⌄</span>
+            </button>
+            <div class="faq-answer"><p>This demo assumes free registration. Confirm the actual event conditions with its organizers.</p></div>
+          </article>
+
+          <article class="surface-card faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Who can participate?</span><span class="faq-chevron">⌄</span>
+            </button>
+            <div class="faq-answer"><p>Students, developers, and technology enthusiasts can explore the tracks that match their skills.</p></div>
+          </article>
+
+          <article class="surface-card faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is the hackathon team size?</span><span class="faq-chevron">⌄</span>
+            </button>
+            <div class="faq-answer"><p>The sample rules assume teams of up to four people. Verify the final rules with the organizers.</p></div>
+          </article>
+
+          <article class="surface-card faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Will I receive a certificate?</span><span class="faq-chevron">⌄</span>
+            </button>
+            <div class="faq-answer"><p>Certificate eligibility should be confirmed with the event organizers.</p></div>
+          </article>
+
+          <article class="surface-card faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What should I bring?</span><span class="faq-chevron">⌄</span>
+            </button>
+            <div class="faq-answer"><p>Bring a laptop, charger, and the development tools needed for your chosen workshop.</p></div>
+          </article>
+        </div>
+
+        <p class="faq-contact">
+          Still need help?
+          <button class="inline-link" data-modal="contact">Contact the organizing team</button>
+        </p>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand-col">
+          <a class="brand footer-brand" href="#about">
+            <span class="gdg-mark"><span>G</span><span>D</span><span>G</span></span>
+            <span class="brand-copy">
+              <strong>Tekno Krraft <em>2026</em></strong>
+              <small>GDG @ SOA, ITER Chapter</small>
+            </span>
+          </a>
+          <p>Three days of learning, building, and connecting with technology leaders.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Navigation</h4>
+          <a href="#about">About the Fest</a>
+          <a href="#schedule">Event Schedule</a>
+          <a href="#tracks">Tracks &amp; Workshops</a>
+          <a href="#speakers">Speakers</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="#faqs">FAQs</a>
+          <a href="#faqs">Participant Guidelines</a>
+          <a href="#sponsors">Become a Sponsor</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Venue &amp; Contact</h4>
+          <span>ITER, Siksha 'O' Anusandhan</span>
+          <span>Bhubaneswar, Odisha</span>
+          <button class="footer-contact" data-modal="contact">Contact Organizers</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Tekno Krraft · Demo website</span>
+        <span>Built for builders ♥</span>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- DIALOG -->
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <section class="modal surface-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
+    <span class="eyebrow" id="modalEyebrow">Tekno Krraft 2026</span>
+    <h2 id="modalTitle">Register for the event</h2>
+    <p id="modalDescription" class="modal-description">Join the developer community.</p>
+    <form id="modalForm">
+      <div class="form-grid" id="modalFields"></div>
+      <p class="form-note" id="formNote">Demo form only.</p>
+      <button class="btn btn-primary modal-submit" type="submit" id="modalSubmit">Continue →</button>
+    </form>
+  </section>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
